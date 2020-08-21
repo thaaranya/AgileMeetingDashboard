@@ -1,0 +1,101 @@
+<?php
+  
+ include('Adminheader.php');
+include_once("config.php");
+ error_reporting(0);
+	$query = "select * from useraccess";
+		$result = mysql_query($query) or die(mysql_error());
+?>
+
+<style>
+div.scrollmenu {
+  background-color: white;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
+</style>
+
+<div align="center">
+<div class="row mt-5 justify-content-center" data-aos="fade-up">
+<div class="col-lg-10">
+
+	<form action="" name="AddMember" id="AddMember"  method="post">
+
+ <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about-us" class="about-us">
+      <div class="container" data-aos="fade-up">
+	
+	<div class="section-title">
+          <h2>User Access</strong></h2>
+        </div>
+ </div>
+
+<div class="scrollmenu">
+			<table border="2" cellspacing="6" class="displaycontent" width="900" style="border:8px solid Black;" align="center">  
+			<tr>
+			<th bgcolor=green><strong><font color=white size=2>Id</font></strong></th>
+			<th bgcolor=green><strong><font color=white size=2>User Id</font></strong></th>
+			<th bgcolor=green><strong><font color=white size=2>Login</font></strong></th>
+				<th bgcolor=green><strong><font color=white size=2>Logout</font></strong></th>
+			
+			
+	</tr>
+		<?php
+    while($row=mysql_fetch_array($result))
+	{
+
+?>
+			<tr>
+		
+		<td bgcolor=white><font color=#000000 size=2><?php echo $row['id']; ?></font></td><br>
+		<td bgcolor=white><font color=#000000 size=2><?php echo $row['Uid']; ?></font></td><br>
+		<td bgcolor=white><font color=#000000 size=2><?php echo $row['login']; ?></font></td>
+		<td bgcolor=white><font color=#000000 size=2><?php echo $row['logout']; ?></font></td>
+		
+	
+
+	
+ 	</tr>
+	
+		<?php
+		}	
+
+?>	
+</table> 
+</div>
+    </section><!-- End About Us Section -->
+
+    
+ </main><!-- End #main -->
+  
+</form>
+
+	 </div>
+	 </div>
+	 </div>
+
+
+
+	 
+
+
+<br>
+
+
+	 <?php
+include('footer.php');
+?>

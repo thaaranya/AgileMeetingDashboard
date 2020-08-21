@@ -1,0 +1,7 @@
+<?php
+	session_start();	
+	mysql_connect("localhost","root","") or die(mysql_error());
+	mysql_select_db("Meeting") or die(mysql_error());
+	error_reporting(0);
+	
+?>
